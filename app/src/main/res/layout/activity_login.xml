@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,10 +12,10 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="169dp"
-        android:layout_marginTop="0dp"
         android:layout_marginBottom="24dp"
+        android:scaleType="fitXY"
         android:src="@drawable/tripplanner_logo" />
 
     <TextView
@@ -33,21 +34,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#888888"
         android:textColor="#FFFFFF"
         android:fontFamily="@font/jua_regular"
         android:inputType="textEmailAddress"
+        android:backgroundTint="#FFFFFF"
         android:layout_marginBottom="16dp"/>
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
         android:hint="Password"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#888888"
+        android:textColor="#FFFFFF"
         android:fontFamily="@font/jua_regular"
         android:inputType="textPassword"
+        android:backgroundTint="#FFFFFF"
         android:layout_marginBottom="16dp"/>
 
     <EditText
@@ -55,21 +58,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="City"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#888888"
         android:textColor="#FFFFFF"
         android:fontFamily="@font/jua_regular"
+        android:backgroundTint="#FFFFFF"
         android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#7FC7D9"
-
-        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/suit"
+        android:drawablePadding="10dp"
         android:fontFamily="@font/jua_regular"
         android:text="Login"
+        android:textSize="20dp"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -82,35 +87,51 @@
         android:layout_gravity="end"
         android:layout_marginBottom="16dp"/>
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp">
 
-        android:background="@drawable/home">
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/home"
+            android:scaleType="centerCrop" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/signUpTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/jua_regular"
-            android:text="Don't have an account? Sign up"
-            android:textColor="#FFFFFF" />
+            <TextView
+                android:id="@+id/signUpTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/jua_regular"
+                android:text="Don't have an account? Sign up"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/googleSignUpButton"
-            android:layout_width="wrap_content"
-            android:layout_height="61dp"
-            android:layout_below="@id/signUpTextView"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#0F1035"
-            android:drawablePadding="8dp"
-            android:fontFamily="@font/jua_regular"
-            android:text="Sign up with Google"
-            android:textColor="#FFFFFF" />
+            <Button
+                android:id="@+id/googleSignUpButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="#0F1035"
+                android:drawableStart="@drawable/google"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/jua_regular"
+                android:text="Sign up with Google"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
 
-    </RelativeLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
 
 </LinearLayout>

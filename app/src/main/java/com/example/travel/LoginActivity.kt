@@ -1,5 +1,6 @@
 package com.example.travel
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -22,6 +23,8 @@ class LoginActivity : AppCompatActivity() {
 
         loginButton.setOnClickListener {
             // Handle login logic here
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
 
         forgotPasswordTextView.setOnClickListener {
