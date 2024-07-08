@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Home"
+        android:layout_marginStart="170dp"
+        android:fontFamily="@font/jua_regular"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
