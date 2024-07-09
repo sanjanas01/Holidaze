@@ -11,6 +11,8 @@ object BottomNavigation{
                 R.id.nav_home -> {
                     // Handle home action
                     // You can start a new activity if needed
+                    val intent = Intent(activity, HomeActivity::class.java)
+                    activity.startActivity(intent)
                     true
                 }
 
