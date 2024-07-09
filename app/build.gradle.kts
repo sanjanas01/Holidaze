@@ -8,6 +8,10 @@ android {
     namespace = "com.example.travel"
     compileSdk = 34
 
+
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.example.travel"
         minSdk = 24
@@ -48,4 +52,9 @@ dependencies {
     implementation ("com.google.firebase:firebase-firestore:24.1.1")
     implementation ("com.google.firebase:firebase-storage:20.0.0")
     implementation ("com.google.firebase:firebase-auth:21.0.1")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+
 }
