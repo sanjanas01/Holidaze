@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -37,8 +38,9 @@ class TripExpensesActivity : AppCompatActivity() {
             val intent = Intent(this, AddExpenseActivity::class.java)
             startActivity(intent)
         }
-
         fetchExpenses()
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        BottomNavigation.setupBottomNavigation(this, bottomNavigationView)
     }
 
     private fun fetchExpenses() {

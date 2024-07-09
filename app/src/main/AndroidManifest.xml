@@ -28,6 +28,8 @@
         <activity android:name=".ItineraryActivity"/>
         <activity android:name=".AddExpenseActivity" />
         <activity android:name=".TripExpensesActivity"/>
+        <activity android:name=".TripOverviewActivity"/>
+        <activity android:name=".JourneyActivity"/>
     </application>
 
 </manifest>

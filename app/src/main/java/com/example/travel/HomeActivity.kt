@@ -21,30 +21,7 @@ class HomeActivity : AppCompatActivity() {
         )
         val adapter = ImagePagerAdapter(images)
         viewPager.adapter = adapter
-
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    // Handle home action
-                    true
-                }
-                R.id.nav_add -> {
-                    // Handle add action
-                    true
-                }
-                R.id.nav_profile -> {
-                    // Handle profile action
-                    true
-                }
-                else -> false
-            }
-        }
-        val imageViewWood: ImageView = findViewById(R.id.imageViewWood)
-        imageViewWood.setOnClickListener {
-            val intent = Intent(this, TripExpensesActivity::class.java)
-            startActivity(intent)
-        }
+        BottomNavigation.setupBottomNavigation(this, bottomNavigationView)
     }
-
 }

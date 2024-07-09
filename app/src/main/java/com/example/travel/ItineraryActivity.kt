@@ -28,14 +28,7 @@ class ItineraryActivity : AppCompatActivity() {
         tripAdapter = TripAdapter(tripList)
         recyclerView.adapter = tripAdapter
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> true
-                R.id.nav_add -> true
-                R.id.nav_profile -> true
-                else -> false
-            }
-        }
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        BottomNavigation.setupBottomNavigation(this, bottomNavigationView)
     }
 }
