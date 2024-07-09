@@ -1,33 +1,45 @@
 package com.example.travel
-
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class UpdateProfileActivity : AppCompatActivity() {
+
+    private lateinit var newNameEditText: EditText
+    private lateinit var newEmailEditText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update)
 
-        val editTextNewName = findViewById<EditText>(R.id.edit_text_new_name)
-        val editTextNewEmail = findViewById<EditText>(R.id.edit_text_new_email)
-        val buttonUpdate = findViewById<Button>(R.id.button_update)
+        newNameEditText = findViewById(R.id.edit_text_new_name)
+        newEmailEditText = findViewById(R.id.edit_text_new_email)
 
-        buttonUpdate.setOnClickListener {
-            val newName = editTextNewName.text.toString()
-            val newEmail = editTextNewEmail.text.toString()
-
-            // Here you can implement your logic to update the profile details
-            // For now, let's just display a toast message
-            if (newName.isNotEmpty() && newEmail.isNotEmpty()) {
-                // Update profile logic goes here
-                Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show()
-            }
+        val updateButton: Button = findViewById(R.id.button_update)
+        updateButton.setOnClickListener {
+            updateProfile()
         }
+    }
+
+    private fun updateProfile() {
+        val newName = newNameEditText.text.toString().trim()
+        val newEmail = newEmailEditText.text.toString().trim()
+
+        // Perform any necessary validation before updating
+        if (newName.isNotEmpty()) {
+            // Pass the new name back to MyAccountActivity
+            val resultIntent = Intent()
+            resultIntent.putExtra("NEW_NAME", newName)
+            setResult(RESULT_OK, resultIntent)
+            finish()
+        }
+
+        // Optionally, update other fields like email
+        // Example:
+        // if (newEmail.isNotEmpty()) {
+        //     // Update the email
+        // }
     }
 }
