@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2F2C78</color>
-    <color name="colorPrimaryDark">#1F1B56</color>
-    <color name="white">#FFFFFF</color>
-    <color name="bg">#DCF2F1</color>
-    <color name="black">#000000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_blue">#DCF2F1</color>
     <color name="blue1">#FFDCF2F1</color>
-    <color name="lightblue">#FF7FC7D9</color>
-    <color name="mblye">#F7365486</color>
-    <color name="darkblue">#FF0F1035</color>
-
+    <color name="blue2">#FF7FC7D9</color>
+    <color name="blue3">#F7365486</color>
+    <color name="blue4">#FF0F1035</color>
 </resources>
