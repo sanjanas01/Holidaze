@@ -7,10 +7,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import android.widget.EditText
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class JourneyActivity : AppCompatActivity() {
+class JourneyActivity : AppCompatActivity()
+{
 
     private lateinit var locationEditText: EditText
     private lateinit var whereToButton: Button
@@ -54,10 +56,11 @@ class JourneyActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
             } else {
                 saveJourneyDetails(location, startDate, endDate)
-                Toast.makeText(this, "Start Planning button clicked", Toast.LENGTH_SHORT).show()
-                // Navigate to OverviewActivity
+                Toast.makeText(this, "Added Successfully", Toast.LENGTH_SHORT).show()
+                navigateToOverviewPage()
             }
         }
+
     }
 
 
@@ -67,32 +70,45 @@ class JourneyActivity : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-            val date = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-            onDateSet(date)
-        }, year, month, day)
+        val datePickerDialog =
+            DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                val date = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                onDateSet(date)
+            }, year, month, day)
 
         datePickerDialog.show()
     }
 
     private fun saveJourneyDetails(location: String, startDate: String, endDate: String) {
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
+            Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Create journey details map
         val journeyDetails = hashMapOf(
             "location" to location,
             "startDate" to startDate,
             "endDate" to endDate
         )
-
-        db.collection("journeys")
+        db.collection("journeys").document(currentUser.uid).collection("trips")
             .add(journeyDetails)
-            .addOnSuccessListener {
+            .addOnSuccessListener { documentReference ->
                 Toast.makeText(this, "Journey details saved", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener {
-                Toast.makeText(this, "Error saving journey details", Toast.LENGTH_SHORT).show()
+            .addOnFailureListener { e ->
+                Toast.makeText(
+                    this,
+                    "Error saving journey details: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
+
     private fun navigateToOverviewPage() {
-        val intent = Intent(this, OverviewActivity::class.java)
+        val intent = Intent(this, TripOverviewActivity::class.java)
         startActivity(intent)
     }
 }

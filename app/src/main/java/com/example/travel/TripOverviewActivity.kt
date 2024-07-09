@@ -3,12 +3,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class TripOverviewActivity : AppCompatActivity()
-{
+class TripOverviewActivity : AppCompatActivity() {
     private lateinit var tvFetchPlace: TextView
     private lateinit var tvDate: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +22,12 @@ class TripOverviewActivity : AppCompatActivity()
 //        findViewById<ImageView>(R.id.imageView15).setOnClickListener {
 //            startActivity(Intent(this, AddPlaceActivity::class.java))
 //        }
-
+        findViewById<ImageView>(R.id.imageView16).setOnClickListener {
+            startActivity(Intent(this, ItineraryActivity::class.java))
+        }
+        findViewById<ImageView>(R.id.imageView17).setOnClickListener {
+            startActivity(Intent(this, TripExpensesActivity::class.java))
+        }
 //        findViewById<ImageView>(R.id.imageView18).setOnClickListener {
 //            startActivity(Intent(this, PackingListActivity::class.java))
 //        }
@@ -34,33 +40,50 @@ class TripOverviewActivity : AppCompatActivity()
 //        findViewById<ImageView>(R.id.imageView21).setOnClickListener {
 //            startActivity(Intent(this, CollaboratorsActivity::class.java))
 //        }
-
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        BottomNavigation.setupBottomNavigation(this, bottomNavigationView)
     }
-    private fun fetchTripDetails() {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        val db = FirebaseFirestore.getInstance()
-        db.collection("journeys")
-            .document(userId!!)
-            .get()
-            .addOnSuccessListener { documentSnapshot ->
-                if (documentSnapshot.exists()) {
-                    val location = documentSnapshot.getString("location")
-                    val startDate = documentSnapshot.getString("startDate")
-                    val endDate = documentSnapshot.getString("endDate")
 
-                    // Set text to TextViews
-                    tvFetchPlace.text = location
-                    tvDate.text = "$startDate - $endDate"
-                } else {
-                    // Handle case where no trip data is found for the user
-                    tvFetchPlace.text = "No trip found"
-                    tvDate.text = "No date found"
+    private fun fetchTripDetails() {
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        val db = FirebaseFirestore.getInstance()
+
+        if (currentUser != null) {
+            db.collection("journeys").document(currentUser.uid).collection("trips")
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    if (!querySnapshot.isEmpty)
+                    {
+                        for (document in querySnapshot.documents)
+                        {
+                            val location = document.getString("location")
+                            val startDate = document.getString("startDate")
+                            val endDate = document.getString("endDate")
+                            tvFetchPlace.text = location
+                            tvDate.text = "$startDate - $endDate"
+                        }
+
+                    }
+                    else
+                    {
+                        tvFetchPlace.text = "No trips found"
+                        tvDate.text = "No dates found"
+                    }
                 }
-            }
-            .addOnFailureListener { exception ->
-                // Handle failures
-                tvFetchPlace.text = "Error fetching trip"
-                tvDate.text = ""
-            }
+                .addOnFailureListener { e ->
+                    // Handle any errors that might occur
+                    Toast.makeText(
+                        this,
+                        "Error fetching journey details: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    tvFetchPlace.text = "Error fetching trips"
+                    tvDate.text = "Error fetching dates"
+                }
+        }
+
     }
 }
+
+

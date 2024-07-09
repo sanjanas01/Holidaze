@@ -1,6 +1,8 @@
 package com.example.travel
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -19,24 +21,7 @@ class HomeActivity : AppCompatActivity() {
         )
         val adapter = ImagePagerAdapter(images)
         viewPager.adapter = adapter
-
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    // Handle home action
-                    true
-                }
-                R.id.nav_add -> {
-                    // Handle add action
-                    true
-                }
-                R.id.nav_profile -> {
-                    // Handle profile action
-                    true
-                }
-                else -> false
-            }
-        }
+        BottomNavigation.setupBottomNavigation(this, bottomNavigationView)
     }
 }
