@@ -30,6 +30,8 @@
         <activity android:name=".TripExpensesActivity"/>
         <activity android:name=".TripOverviewActivity"/>
         <activity android:name=".JourneyActivity"/>
+        <activity android:name=".PackingActivity" />
+
     </application>
 
 </manifest>
