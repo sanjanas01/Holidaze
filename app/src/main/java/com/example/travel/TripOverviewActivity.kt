@@ -19,18 +19,18 @@ class TripOverviewActivity : AppCompatActivity() {
         tvDate = findViewById(R.id.tvDate)
         fetchTripDetails()
 
-//        findViewById<ImageView>(R.id.imageView15).setOnClickListener {
-//            startActivity(Intent(this, AddPlaceActivity::class.java))
-//        }
+        findViewById<ImageView>(R.id.imageView15).setOnClickListener {
+            startActivity(Intent(this, AddItineraryActivity::class.java))
+        }
         findViewById<ImageView>(R.id.imageView16).setOnClickListener {
             startActivity(Intent(this, ItineraryActivity::class.java))
         }
         findViewById<ImageView>(R.id.imageView17).setOnClickListener {
             startActivity(Intent(this, TripExpensesActivity::class.java))
         }
-//        findViewById<ImageView>(R.id.imageView18).setOnClickListener {
-//            startActivity(Intent(this, PackingListActivity::class.java))
-//        }
+        findViewById<ImageView>(R.id.imageView18).setOnClickListener {
+            startActivity(Intent(this, PackingActivity::class.java))
+        }
 //        findViewById<ImageView>(R.id.imageView19).setOnClickListener {
 //            startActivity(Intent(this, MapsActivity::class.java))
 //        }

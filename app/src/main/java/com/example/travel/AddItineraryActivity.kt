@@ -2,6 +2,7 @@ package com.example.travel
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -25,10 +26,10 @@ class AddItineraryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_itinerary)
 
-        buttonSelectDate = findViewById(R.id.buttonSelectDate)
-        buttonSelectTime = findViewById(R.id.buttonSelectTime)
-        editTextAddPlace = findViewById(R.id.editTextAddPlace)
-        buttonSaveItinerary = findViewById(R.id.buttonSaveItinerary)
+        buttonSelectDate = findViewById(R.id.selectDate)
+        buttonSelectTime = findViewById(R.id.selectTime)
+        editTextAddPlace = findViewById(R.id.addplace)
+        buttonSaveItinerary = findViewById(R.id.saveItinerary)
 
         buttonSelectDate.setOnClickListener {
             showDatePicker { date ->
@@ -91,13 +92,17 @@ class AddItineraryActivity : AppCompatActivity() {
             .add(itinerary)
             .addOnSuccessListener {
                 Toast.makeText(this, "Itinerary added", Toast.LENGTH_SHORT).show()
-                // Clear the inputs after saving
-                buttonSelectDate.text = "Select Date"
-                buttonSelectTime.text = "Select Time"
-                editTextAddPlace.text.clear()
+                // Navigate to HomeActivity after saving
+                navigateToHome()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Failed to add itinerary", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun navigateToHome() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish() // Optional: Close AddItineraryActivity
     }
 }

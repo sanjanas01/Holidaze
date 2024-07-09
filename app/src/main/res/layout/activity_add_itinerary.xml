@@ -7,120 +7,124 @@
     android:background="#DCF2F1"
     tools:context=".AddItineraryActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Customize your Itinerary"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:fontFamily="@font/jua_regular"
-                android:paddingBottom="16dp"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/image1"
-                android:scaleType="centerCrop"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="Image of London"/>
-
-            <Button
-                android:id="@+id/buttonSelectDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/jua_regular"
-                android:text="Select Date"/>
-
-            <Button
-                android:id="@+id/buttonSelectTime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/jua_regular"
-                android:text="Select Time"
-                android:layout_marginTop="16dp"/>
-
-            <EditText
-                android:id="@+id/editTextAddPlace"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Add a place"
-                android:drawableEnd="@android:drawable/ic_menu_search"
-                android:padding="10dp"
-                android:layout_marginTop="16dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Recommended places"
-                android:textSize="18sp"
-                android:fontFamily="@font/jua_regular"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Repeat for each recommended place -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp"
-                    android:background="@drawable/image3"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:drawableStart="@drawable/image2"
-                        android:drawablePadding="8dp"
-                        android:fontFamily="@font/jua_regular"
-                        android:text="British Museum" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+"
-                        android:onClick="onAddPlaceClick"/>
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/buttonSaveItinerary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Save Itinerary"
-                android:fontFamily="@font/jua_regular"
-                android:layout_marginTop="16dp"/>
-        </LinearLayout>
-    </ScrollView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/bottom_nav_menu"
+        android:layout_gravity="center"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/jua_regular"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:text="Customize your Itinerary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="420dp"
+        android:layout_height="339dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/british_museum" />
+
+    <Button
+        android:id="@+id/selectDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="460dp"
+        android:text="Select Date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/selectTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="380dp"
+        android:text="Select Time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="55dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView24"
+        app:layout_constraintEnd_toStartOf="@+id/selectTime"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/time" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="54dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="448dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cal" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="352dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="292dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/rounded_edittext" />
+
+    <Button
+        android:id="@+id/saveItinerary"
+        android:layout_width="130dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="168dp"
+        android:text="Add"
+        android:backgroundTint="@color/blue4"
+        android:fontFamily="@font/jua_regular"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="44dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="292dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addplace"
+        app:layout_constraintHorizontal_bias="0.577"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/mapid" />
+
+    <EditText
+        android:id="@+id/addplace"
+        android:layout_width="190dp"
+        android:layout_height="29dp"
+        android:layout_marginBottom="292dp"
+        android:hint="Enter place"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
