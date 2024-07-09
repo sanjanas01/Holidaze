@@ -16,14 +16,15 @@
 
         <!-- Main Activity -->
         <activity
-            android:name=".PackingActivity"
+            android:name=".JourneyActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".JourneyActivity" />
+        <activity android:name=".PackingActivity" />
+        <activity android:name=".OverviewActivity" />
 
     </application>
 </manifest>
