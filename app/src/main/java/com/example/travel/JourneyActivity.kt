@@ -56,6 +56,7 @@ class JourneyActivity : AppCompatActivity() {
                 saveJourneyDetails(location, startDate, endDate)
                 Toast.makeText(this, "Start Planning button clicked", Toast.LENGTH_SHORT).show()
                 // Navigate to OverviewActivity
+                navigateToTripsPage()
             }
         }
     }
@@ -91,8 +92,8 @@ class JourneyActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error saving journey details", Toast.LENGTH_SHORT).show()
             }
     }
-    private fun navigateToOverviewPage() {
-        val intent = Intent(this, OverviewActivity::class.java)
+    private fun navigateToTripsPage() {
+        val intent = Intent(this, TripsActivity::class.java)
         startActivity(intent)
     }
 }
