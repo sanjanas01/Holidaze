@@ -21,8 +21,8 @@ object BottomNavigation{
                 }
 
                 R.id.nav_profile -> {
-                    // Handle profile action
-                    // You can start a new activity if needed
+                    val intent = Intent(activity, MyAccountActivity::class.java)
+                    activity.startActivity(intent)
                     true
                 }
 

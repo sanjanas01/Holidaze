@@ -31,6 +31,8 @@
         <activity android:name=".TripOverviewActivity"/>
         <activity android:name=".JourneyActivity"/>
         <activity android:name=".PackingActivity" />
+        <activity android:name=".MyAccountActivity"/>
+        <activity android:name=".UpdateProfileActivity"/>
 
     </application>
 
