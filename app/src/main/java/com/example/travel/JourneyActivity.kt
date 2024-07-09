@@ -57,7 +57,7 @@ class JourneyActivity : AppCompatActivity()
             } else {
                 saveJourneyDetails(location, startDate, endDate)
                 Toast.makeText(this, "Added Successfully", Toast.LENGTH_SHORT).show()
-                navigateToOverviewPage()
+                navigateToTripPage()
             }
         }
 
@@ -107,8 +107,8 @@ class JourneyActivity : AppCompatActivity()
             }
     }
 
-    private fun navigateToOverviewPage() {
-        val intent = Intent(this, TripOverviewActivity::class.java)
+    private fun navigateToTripPage() {
+        val intent = Intent(this, TripsActivity::class.java)
         startActivity(intent)
     }
 }

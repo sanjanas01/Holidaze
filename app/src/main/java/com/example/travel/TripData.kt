@@ -1,7 +1,9 @@
 package com.exampe.travel
+import java.io.Serializable
 
 data class Journey(
-    var location: String = "",
-    var startDate: String = "",
-    var endDate: String = ""
-)
+    val location: String? = null,
+    val startDate: String? = null,
+    val endDate: String? = null
+) : Serializable
+
