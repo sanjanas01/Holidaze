@@ -7,19 +7,20 @@
     tools:context=".JourneyActivity">
 
     <!-- Background Image -->
+
+    <!-- Title Text -->
     <ImageView
         android:id="@+id/backgroundImage"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="410dp"
+        android:layout_height="790dp"
         android:alpha="0.5"
         android:scaleType="centerCrop"
         android:src="@drawable/background_image"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Title Text -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
@@ -102,24 +103,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
-        android:layout_marginBottom="53dp"
         android:backgroundTint="#FFFFFF"
         android:padding="10dp"
         android:text="CREATE TRIP"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintStart_toStartOf="@+id/endDateButton"
         app:layout_constraintTop_toBottomOf="@+id/endDateButton" />
 
-    <!-- Bottom Navigation Bar -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#2c3e50"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startPlanningButton">
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:menu="@menu/bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

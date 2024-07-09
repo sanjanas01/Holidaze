@@ -28,9 +28,9 @@ class TripOverviewActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.imageView17).setOnClickListener {
             startActivity(Intent(this, TripExpensesActivity::class.java))
         }
-//        findViewById<ImageView>(R.id.imageView18).setOnClickListener {
-//            startActivity(Intent(this, PackingListActivity::class.java))
-//        }
+        findViewById<ImageView>(R.id.imageView18).setOnClickListener {
+            startActivity(Intent(this, PackingActivity::class.java))
+        }
 //        findViewById<ImageView>(R.id.imageView19).setOnClickListener {
 //            startActivity(Intent(this, MapsActivity::class.java))
 //        }
@@ -85,5 +85,3 @@ class TripOverviewActivity : AppCompatActivity() {
 
     }
 }
-
-
