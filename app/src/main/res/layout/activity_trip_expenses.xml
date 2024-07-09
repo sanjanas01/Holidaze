@@ -231,7 +231,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tvRestaurantAmount"
+        android:id="@+id/tvSightSeeingAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -242,7 +242,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <TextView
-        android:id="@+id/tvSightSeeingAmount"
+        android:id="@+id/tvRestaurantAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"

@@ -23,11 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity"/>
         <activity android:name=".SignUpActivity" />
-        <activity
-            android:name=".TripExpensesActivity"/>
+        <activity android:name=".ItineraryActivity"/>
         <activity android:name=".AddExpenseActivity" />
+        <activity android:name=".TripExpensesActivity"/>
     </application>
 
 </manifest>

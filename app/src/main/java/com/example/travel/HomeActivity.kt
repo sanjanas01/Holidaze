@@ -1,6 +1,8 @@
 package com.example.travel
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -38,5 +40,11 @@ class HomeActivity : AppCompatActivity() {
                 else -> false
             }
         }
+        val imageViewWood: ImageView = findViewById(R.id.imageViewWood)
+        imageViewWood.setOnClickListener {
+            val intent = Intent(this, TripExpensesActivity::class.java)
+            startActivity(intent)
+        }
     }
+
 }
