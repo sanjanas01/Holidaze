@@ -21,7 +21,16 @@ class HomeActivity : AppCompatActivity() {
         )
         val adapter = ImagePagerAdapter(images)
         viewPager.adapter = adapter
+
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         BottomNavigation.setupBottomNavigation(this, bottomNavigationView)
+
+        // Set OnClickListener for the imageViewWood
+        val imageViewWood: ImageView = findViewById(R.id.imageViewWood)
+        imageViewWood.setOnClickListener {
+            // Create an Intent to start TripsActivity
+            val intent = Intent(this, TripsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

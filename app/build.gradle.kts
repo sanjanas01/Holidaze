@@ -57,9 +57,9 @@ dependencies {
     implementation ("com.google.firebase:firebase-auth:21.0.1")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
-
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.5.0")
     implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
-
+    implementation ("com.google.firebase:firebase-core:21.0.0")
     implementation("com.google.firebase:firebase-database:20.0.5")
 
 }

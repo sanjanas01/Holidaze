@@ -33,6 +33,8 @@
         <activity android:name=".PackingActivity" />
         <activity android:name=".MyAccountActivity"/>
         <activity android:name=".UpdateProfileActivity"/>
+        <activity android:name=".TripsActivity"/>
+        <activity android:name=".AddItineraryActivity"/>
 
     </application>
 

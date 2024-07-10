@@ -1,19 +1,18 @@
 package com.example.travel
+
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import java.util.*
-import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
-
-class JourneyActivity : AppCompatActivity()
-{
+class JourneyActivity : AppCompatActivity() {
     private lateinit var locationEditText: EditText
     private lateinit var whereToButton: Button
     private lateinit var startDateButton: Button
@@ -60,10 +59,10 @@ class JourneyActivity : AppCompatActivity()
                 navigateToTripPage()
             }
         }
+
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         BottomNavigation.setupBottomNavigation(this, bottomNavigationView)
     }
-
 
     private fun showDatePicker(onDateSet: (String) -> Unit) {
         val calendar = Calendar.getInstance()
@@ -71,25 +70,15 @@ class JourneyActivity : AppCompatActivity()
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-<<<<<<<<< Temporary merge branch 1
         val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
             val date = "$selectedDay/${selectedMonth + 1}/$selectedYear"
             onDateSet(date)
         }, year, month, day)
-=========
-        val datePickerDialog =
-            DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-                val date = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-                onDateSet(date)
-            }, year, month, day)
->>>>>>>>> Temporary merge branch 2
 
         datePickerDialog.show()
     }
 
     private fun saveJourneyDetails(location: String, startDate: String, endDate: String) {
-<<<<<<<<< Temporary merge branch 1
-=========
         val auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         if (currentUser == null) {
@@ -97,14 +86,12 @@ class JourneyActivity : AppCompatActivity()
             return
         }
 
-        // Create journey details map
->>>>>>>>> Temporary merge branch 2
         val journeyDetails = hashMapOf(
             "location" to location,
             "startDate" to startDate,
             "endDate" to endDate
         )
-        db.collection("journeys").document(currentUser.uid).collection("trips")
+        db.collection("users").document(currentUser.uid).collection("journeys")
             .add(journeyDetails)
             .addOnSuccessListener { documentReference ->
                 Toast.makeText(this, "Journey details saved", Toast.LENGTH_SHORT).show()

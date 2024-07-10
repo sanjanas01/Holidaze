@@ -55,11 +55,12 @@
         android:id="@+id/imageViewWood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-100dp"
-        android:src="@drawable/navimg"
+        android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
+        android:src="@drawable/navimg"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewPager" />
 
