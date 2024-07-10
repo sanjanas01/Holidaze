@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import android.widget.EditText
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -60,7 +61,8 @@ class JourneyActivity : AppCompatActivity()
                 navigateToOverviewPage()
             }
         }
-
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        BottomNavigation.setupBottomNavigation(this, bottomNavigationView)
     }
 
 

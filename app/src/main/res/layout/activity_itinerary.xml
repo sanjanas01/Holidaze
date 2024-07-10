@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/london_image"
+        android:src="@drawable/travel"
         android:layout_margin="16dp"/>
 
     <TextView
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:text="London"
+        android:text="Here to get you there"
         android:fontFamily="@font/jua_regular"
         android:textAlignment="center"
         android:textColor="#FFF"
