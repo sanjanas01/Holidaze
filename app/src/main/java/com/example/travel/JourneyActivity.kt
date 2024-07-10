@@ -14,7 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class JourneyActivity : AppCompatActivity()
 {
-
     private lateinit var locationEditText: EditText
     private lateinit var whereToButton: Button
     private lateinit var startDateButton: Button
@@ -58,7 +57,7 @@ class JourneyActivity : AppCompatActivity()
             } else {
                 saveJourneyDetails(location, startDate, endDate)
                 Toast.makeText(this, "Added Successfully", Toast.LENGTH_SHORT).show()
-                navigateToOverviewPage()
+                navigateToTripPage()
             }
         }
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
@@ -72,16 +71,25 @@ class JourneyActivity : AppCompatActivity()
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
+<<<<<<<<< Temporary merge branch 1
+        val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+            val date = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+            onDateSet(date)
+        }, year, month, day)
+=========
         val datePickerDialog =
             DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
                 val date = "$selectedDay/${selectedMonth + 1}/$selectedYear"
                 onDateSet(date)
             }, year, month, day)
+>>>>>>>>> Temporary merge branch 2
 
         datePickerDialog.show()
     }
 
     private fun saveJourneyDetails(location: String, startDate: String, endDate: String) {
+<<<<<<<<< Temporary merge branch 1
+=========
         val auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         if (currentUser == null) {
@@ -90,6 +98,7 @@ class JourneyActivity : AppCompatActivity()
         }
 
         // Create journey details map
+>>>>>>>>> Temporary merge branch 2
         val journeyDetails = hashMapOf(
             "location" to location,
             "startDate" to startDate,
@@ -109,8 +118,8 @@ class JourneyActivity : AppCompatActivity()
             }
     }
 
-    private fun navigateToOverviewPage() {
-        val intent = Intent(this, TripOverviewActivity::class.java)
+    private fun navigateToTripPage() {
+        val intent = Intent(this, TripsActivity::class.java)
         startActivity(intent)
     }
 }
