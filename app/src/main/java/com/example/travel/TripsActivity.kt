@@ -7,6 +7,7 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.exampe.travel.Journey
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
@@ -61,5 +62,7 @@ class TripsActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        BottomNavigation.setupBottomNavigation(this, bottomNavigationView)
     }
 }
