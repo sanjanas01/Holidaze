@@ -19,7 +19,7 @@ Holidaze is a travel planner app designed to enhance your travel experience by p
 ### Installation
 
 1. **Clone the repository:**
-   git clone [https://github.com/yourusername/holidaze-travel-planner.git](https://github.com/sanjanas01/Holidaze.git)
+   git clone [Repository](https://github.com/sanjanas01/Holidaze.git)
 
 2. **Open the project in Android Studio:**
    - Open Android Studio.
