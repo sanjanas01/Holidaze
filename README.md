@@ -33,10 +33,10 @@ Holidaze is a travel planner app designed to enhance your travel experience by p
 Watch the video demonstration of Holidaze to see the app in action: [Holidaze Demo Video](https://www.youtube.com/watch?v=aHe9NgovAjE)
 
 ## Contributors
-Sanjana Sudarsan https://github.com/sanjanas01
-Swetha Sriram https://github.com/SwethaSS0420
-Lohithaa K M https://github.com/Lohi14
-Ramya K M https://github.com/Ramyarajan02
+   - Sanjana Sudarsan https://github.com/sanjanas01
+   - Swetha Sriram https://github.com/SwethaSS0420
+   - Lohithaa K M https://github.com/Lohi14
+   - Ramya K M https://github.com/Ramyarajan02
 
 ## License
 
